@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request, redirect
+from flask import Flask,render_template, request, redirect, url_for
 from wtforms import TextAreaField, validators
 from flask_wtf import FlaskForm
 from datetime import datetime
@@ -36,7 +36,8 @@ class LoginForm(FlaskForm):
 @app.route('/admin')
 def admin_login():
     form = LoginForm()
-    return render_template('login.html',form=form)
+    return render_template("login.html",form=form)
+    
 def __repr__(self):
     return '<Name %r>' % self.id
 def classify(document):
