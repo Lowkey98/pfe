@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  <h1>Index</h1>
+  <p class="important">
+    Welcome on my add_movie
+    <form action = "/add_movie" METHOD = "POST">
+        <input type= "text" placeholder="Name" name="name">
+        <input type="submit" value ="Add Movie">
+    </form>
+    <br/><br/>
+    {% for movie in movies%}
+        <h4>
+            {{ movie.name}}
+        </h4>
+    {% endfor %}
+{% endblock %}
