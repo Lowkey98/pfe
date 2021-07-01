@@ -5,10 +5,19 @@ import sqlite3
 import os
 import numpy as np
 from sklearn.externals import joblib
+from flask_sqlalchemy import SQLAlchemy
 loaded_model=joblib.load("./model/model.pkl")
 loaded_stop=joblib.load("./model/stopwords.pkl")
 loaded_vec=joblib.load("./model/vectorizer.pkl")
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///movies.db'
+db = SQLAlchemy(app)
+class Movies(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(200), nullable = False)
+    categorie = db.Column(db.String(200),nullable = False)
+def __repr__(self):
+    return '<Name %r>' % self.id
 def classify(document):
  label = {0: 'negative', 1: 'positive'}
  X = loaded_vec.transform([document])
@@ -17,7 +26,7 @@ def classify(document):
  return label[y], proba
 class ReviewForm(Form):
  moviereview = TextAreaField('',[validators.DataRequired(),validators.length(min=15)])
-@app.route('/')
+@app.route('/review')
 def index():
  form = ReviewForm(request.form)
  return render_template('reviewform.html', form=form)
@@ -31,6 +40,6 @@ def results():
  return render_template('reviewform.html', form=form)
 if __name__ == '__main__':
     app.jinja_env.auto_reload = True
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.run(debug=True, host='0.0.0.0')
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(debug=True, host='0.0.0.0')
 
