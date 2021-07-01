@@ -33,11 +33,17 @@ class Admin(db.Model):
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=4,max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=4,max=15)])
-@app.route('/admin')
+@app.route('/admin', methods=['POST','GET'])
 def admin_login():
     form = LoginForm()
-    return render_template("login.html",form=form)
-    
+    if form.validate_on_submit():
+        print("HELLO WORLD")
+        user = Admin.query.filter_by(username=form.username.data).first()
+        if user:
+            if user.password == form.password.data:
+                return redirect(url_for('add_movie',form=form))
+    return render_template("admin.html",form=form)
+
 def __repr__(self):
     return '<Name %r>' % self.id
 def classify(document):
