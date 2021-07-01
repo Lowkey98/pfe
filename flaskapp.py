@@ -36,7 +36,8 @@ def add_movie():
         try:
             db.session.add(new_movie)
             db.session.commit()
-            return redirect('/add_movie.html')
+            print("khdama katghawat")
+            return redirect('add_movie')
         except:
             return "ERROR LOL"
     else:
