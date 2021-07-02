@@ -1,0 +1,238 @@
+	<!--
+	author: W3layouts
+	author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Films</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- //for-mobile-apps -->
+<link href="{{ url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- pop-up -->
+<link href="{{ url_for('static',filename='css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- //pop-up -->
+<link href="{{ url_for('static',filename='css/easy-responsive-tabs.css')}}" rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/zoomslider.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}" />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<script type="text/javascript" src="{{ url_for('static',filename='js/modernizr-2.6.2.min.js')}}"></script>
+<!--/web-fonts-->
+<link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!--//web-fonts-->
+</head>
+<body>
+	<!--/main-header-->
+	<!--/banner-section-->
+	<div id="demo-1" class="banner-inner">
+		<div class="banner-inner-dott">
+			<!--/header-w3l-->
+			<div class="header-w3-agileits" id="home">
+				<div class="inner-header-agile part2">	
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<h1><a  href="index.html"><span>KADER & AYOUB</span>FILMS </a></h1>
+						</div>
+						<!-- navbar-header -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="index.html">Home</a></li>
+								<li class="dropdown active">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column">
+									<li>
+									<div class="col-sm-12">
+										<ul class="multi-column-dropdown">
+											<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES GENRES
+										    debut de la boucle ici -->
+
+											<li><a href="genre.html">Action</a></li> <!--Remplacez Action par le nom du genre -->
+
+											<!-- fin de la boucle ici -->										</ul>
+									</div>
+									<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>	
+					</nav>
+					<div class="w3ls_search">
+						<div class="cd-main-header">
+							<ul class="cd-header-buttons">
+								<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+							</ul> <!-- cd-header-buttons -->
+						</div>
+						<div id="cd-search" class="cd-search">
+							<form action="#" method="post">
+								<input name="Search" type="search" placeholder="Search...">
+							</form>
+						</div>
+					</div>
+
+				</div> 
+
+			</div>
+			<!--//header-w3l-->
+		</div>
+	</div>
+	<!--/banner-section-->
+	<!--//main-header-->
+
+
+	<!-- breadcrumb -->
+	<div class="w3_breadcrumb">
+		<div class="breadcrumb-inner">	
+			<ul>
+				<li><a href="index.html">Home</a><i>//</i></li>
+
+				<li>Single</li>
+			</ul>
+		</div>
+	</div>
+	<!-- //breadcrumb -->
+	<!--/content-inner-section-->
+	<div class="w3_content_agilleinfo_inner">
+		<div class="agile_featured_movies">
+			<div class="inner-agile-w3l-part-head">
+				<h3 class="w3l-inner-h-title">Commentaire de Film</h3>
+				<p class="w3ls_head_para">Parce que votre Avis Compte</p>
+			</div>
+			<div class="latest-news-agile-info">
+				<div class="col-md-6 latest-news-agile-left-content">
+					<div class="single video_agile_player">
+
+						<div class="video-grid-single-page-agileits">
+							<!---REMPLACEZ LE CHEMIN DE SRC DE L IMAGE SUIVANT PAR L URL DE L IAMGE A AFFICHER--->
+							<div data-video="f2Z65fobH2I" id="video"> <img src="images/1.jpg" alt="" class="img-responsive" /> </div>
+						</div>
+						<!--- REMPLACEZ {{film.nom}} par le nom du film-->
+						<h4>{{film.nom}}</h4>
+					</div>
+
+					<div class="response">
+						<h4>Commentaires</h4>
+
+						<!--- FAITE UNE BOUCLE QUI VA PARCOURRIR LA LISTE DES COMMENTAIRES DE CE FILM 
+							DEBUT DE LA BOUCLE ICI
+							--->
+						<div class="media response-info">
+							<div class="media-left response-text-left">
+								<!--REMPLACEZ CE H5 PAR LE NOM DE CELUI QUI A COMMENTE-->
+								<h5><a href="#">Visiteur</a></h5>
+							</div>
+							<div class="media-body response-text-right">
+								<p>Ce film est super genial.</p>  <!--- REMPLACEZ LE TEXTE DE CE PARAGRAPHE PAR LE TEXET DU COMMENTAIRE--->
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						
+						<!--FIN DE BOUCLE --->
+					</div>
+			
+				</div>
+
+						<div class="all-comments-info col-md-6">
+						<h5 >Laissez Votre Commentaire Ici</h5>
+						<div class="agile-info-wthree-box">
+							<!--formulaire pour laisser un nouveau commentaire--->
+							<form>
+								<div class="col-md-12 form-info">
+									<input type="text" name="name" placeholder="Your Name" required="">
+									<br><br>   
+									<textarea placeholder="Message" required=""></textarea>
+									<input type="submit" value="SEND">
+								</div>
+								<div class="clearfix"> </div>
+								<br>
+								<br>
+								<div>
+
+									<h4>Ce commentaire est <span class="text-danger">bon</span> a <span class="text-success">90%</span></h4>
+								</div>
+							</form>
+							<!-- fin du formulaire pour laisser un nouveau commentaire--->
+
+						</div>
+					</div>
+				
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+			</div>
+			<!--//content-inner-section-->
+
+
+			<!--/footer-bottom-->
+			<div class="w3agile_footer_copy">
+				<p>© 2021 Ayouba & Kader All rights reserved</p>
+			</div>
+			<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+			<script src="{{ url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+			<!-- Dropdown-Menu-JavaScript -->
+
+			<!-- //Dropdown-Menu-JavaScript -->
+			<!-- search-jQuery -->
+			<script src="{{ url_for('static',filename='js/main.js')}}"></script>
+
+	
+
+			<!-- pop-up-box -->  
+			<script src="{{ url_for('static',filename='js/jquery.magnific-popup.js')}}" type="text/javascript"></script>
+			<!--//pop-up-box -->
+
+
+			<link href="{{ url_for('static',filename='css/owl.carousel.css')}}" rel="stylesheet" type="text/css" media="all">
+			<script src="{{ url_for('static',filename='js/owl.carousel.js')}}"></script>
+			<script>
+				$(document).ready(function() { 
+					$("#owl-demo").owlCarousel({
+
+			 autoPlay: 3000, //Set AutoPlay to 3 seconds
+			 autoPlay : true,
+			 navigation :true,
+
+			 items : 5,
+			 itemsDesktop : [640,4],
+			 itemsDesktopSmall : [414,3]
+
+			});
+
+				}); 
+			</script> 
+
+			<!--/script-->
+			<script type="text/javascript" src="{{ url_for('static',filename='js/move-top.js')}}"></script>
+			<script type="text/javascript" src="{{ url_for('static',filename='js/easing.js')}}"></script>
+
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){		
+						event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+					});
+				});
+			</script>
+		
+						 <!--end-smooth-scrolling-->
+			<script src="{{ url_for('static',filename='js/bootstrap.js')}}"></script>
+
+	</body>
+						
+</html>

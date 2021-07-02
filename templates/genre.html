@@ -1,0 +1,206 @@
+	<!--
+	author: W3layouts
+	author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movies</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<!-- //for-mobile-apps -->
+	<link href="{{ url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+	<!-- pop-up -->
+	<link href="{{ url_for('static',filename='css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
+	<!-- //pop-up -->
+	<link href="{{ url_for('static',filename='css/easy-responsive-tabs.css')}}" rel='stylesheet' type='text/css'/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/zoomslider.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}" />
+	<link href="{{ url_for('static',filename='css/font-awesome.css')}}" rel="stylesheet"> 
+	<script type="text/javascript" src="{{ url_for('static',filename='js/modernizr-2.6.2.min.js')}}"></script>
+	<!--/web-fonts-->
+	<link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+	<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<!--//web-fonts-->
+</head>
+<body>
+	<!--/main-header-->
+	<!--/banner-section-->
+	<div id="demo-1" class="banner-inner">
+		<div class="banner-inner-dott">
+			<!--/header-w3l-->
+			<div class="header-w3-agileits" id="home">
+				<div class="inner-header-agile part2">	
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<h1><a  href="index.html"><span>KADER & AYOUB</span>FILMS </a></h1>
+						</div>
+						<!-- navbar-header -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="index.html">Home</a></li>
+								<li class="dropdown active">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
+									<ul class="dropdown-menu multi-column">
+										<li>
+											<div class="col-sm-12">
+												<ul class="multi-column-dropdown">
+											<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES GENRES
+										    debut de la boucle ici -->
+
+											<li><a href="genre.html">Action</a></li> <!--Remplacez Action par le nom du genre -->
+
+											<!-- fin de la boucle ici -->												</ul>
+											</div>
+											<div class="clearfix"></div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>	
+					</nav>
+					<div class="w3ls_search">
+						<div class="cd-main-header">
+							<ul class="cd-header-buttons">
+								<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+							</ul> <!-- cd-header-buttons -->
+						</div>
+						<div id="cd-search" class="cd-search">
+							<form action="#" method="post">
+								<input name="Search" type="search" placeholder="Search...">
+							</form>
+						</div>
+					</div>
+
+				</div> 
+
+			</div>
+			<!--//header-w3l-->
+		</div>
+	</div>
+	<!--/banner-section-->
+	<!--//main-header-->
+
+
+	<!-- breadcrumb -->
+	<div class="w3_breadcrumb">
+		<div class="breadcrumb-inner">	
+			
+		</div>
+	</div>
+	<!-- //breadcrumb -->
+	<!--/content-inner-section-->
+	<div class="w3_content_agilleinfo_inner">
+		<div class="agile_featured_movies">
+
+			<!--/tv-movies-->
+			<h3 class="agile_w3_title hor-t">Film<span>d'action</span> </h3>
+			<div class="wthree_agile-requested-movies tv-movies">
+
+				<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES Films
+										    debut de la boucle ici -->
+				<div class="col-md-2 w3l-movie-gride-agile requested-movies">
+					<!---Remplacer le src de l img suivant par le lien vers l image de l affiche du film-->
+					<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/c1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
+						<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+					</a>
+					<div class="mid-1 agileits_w3layouts_mid_1_home">
+						<div class="w3l-movie-text">
+					<!---Remplacer film.nom par le nom film-->
+						<h6><a href="single.html">{{film.nom}}	</a></h6>		
+						</div>
+						<div class="mid-2 agile_mid_2_home">
+					<!---Remplacer film.note par la note du film-->
+							<p>Note :  {film.note}/10</p>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				
+				</div>
+
+				<!-- fin de la boucle ici -->
+
+
+				<div class="clearfix"></div>
+			</div>
+			<!--//tv-movies-->
+
+
+
+			<!--//requested-movies-->
+			
+		</div>
+	</div>
+</div>
+<!--//content-inner-section-->
+
+
+<!--/footer-bottom-->
+<div class="w3agile_footer_copy">
+	<p>© 2021 Ayouba & Kader All rights reserved</p>
+</div>
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+<script src="{{ url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+<!-- Dropdown-Menu-JavaScript -->
+
+<!-- //Dropdown-Menu-JavaScript -->
+<!-- search-jQuery -->
+<script src="js/main.js"></script>
+
+<!-- pop-up-box -->  
+<script src="{{ url_for('static',filename='js/jquery.magnific-popup.js')}}" type="text/javascript"></script>
+<!--//pop-up-box -->
+
+
+<link href="{{ url_for('static',filename='css/owl.carousel.css')}}" rel="stylesheet" type="text/css" media="all">
+<script src="{{ url_for('static',filename='css/js/owl.carousel.js')}}"></script>
+<script>
+	$(document).ready(function() { 
+		$("#owl-demo").owlCarousel({
+
+			 autoPlay: 3000, //Set AutoPlay to 3 seconds
+			 autoPlay : true,
+			 navigation :true,
+
+			 items : 5,
+			 itemsDesktop : [640,4],
+			 itemsDesktopSmall : [414,3]
+
+			});
+
+	}); 
+</script> 
+
+<!--/script-->
+<script type="text/javascript" src="{{ url_for('static',filename='js/move-top.js')}}"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+		});
+	});
+</script>
+
+						 <!--end-smooth-scrolling-->
+ <script src="{{ url_for('static',filename='js/bootstrap.js')}}"></script>
+
+
+	</body>
+						
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Films</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- //for-mobile-apps -->
+<link href="{{ url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- pop-up -->
+<link href="{{ url_for('static',filename='css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- //pop-up -->
+<link href="{{ url_for('static',filename='css/easy-responsive-tabs.css')}}" rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/zoomslider.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}" />
+<link href="{{ url_for('static',filename='css/font-awesome.css')}}" rel="stylesheet"> 
+<script type="text/javascript" src="{{ url_for('static',filename='js/modernizr-2.6.2.min.js')}}"></script>
+<!--/web-fonts-->
+<link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!--//web-fonts-->
+</head>
+<body>
+	<!--/main-header-->
+	<!--/banner-section-->
+	<div id="demo-1" data-zs-src='["images/banner.jpg"]' data-zs-overlay="dots">
+		<div class="demo-inner-content">
+			<!--/header-w3l-->
+			<div class="header-w3-agileits" id="home">
+				<div class="inner-header-agile">	
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<h1><a  href="index.html"><span>KADER & AYOUB</span>FILMS </a></h1>
+						</div>
+						<!-- navbar-header -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="index.html">Home</a></li>
+								<li class="dropdown active">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column">
+									<li>
+									<div class="col-sm-12">
+										<ul class="multi-column-dropdown">
+										<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES GENRES
+										    debut de la boucle ici -->
+
+											<li><a href="genre.html">Action</a></li> <!--Remplacez Action par le nom du genre -->
+
+											<!-- fin de la boucle ici -->
+										</ul>
+									</div>
+									<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>	
+					</nav>
+					<div class="w3ls_search">
+						<div class="cd-main-header">
+							<ul class="cd-header-buttons">
+								<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+							</ul> <!-- cd-header-buttons -->
+						</div>
+						<div id="cd-search" class="cd-search">
+							<form action="#" method="post">
+								<input name="Search" type="search" placeholder="Search Films...">
+							</form>
+						</div>
+					</div>
+
+				</div> 
+
+			</div>
+			<!--//header-w3l-->
+			<!--/banner-info-->
+			<div class="baner-info">
+				<h3>Bienvenue... </h3>
+				<h4>Ce site vous permet de commenter vos films preferes</h4>
+
+			</div>
+			<!--/banner-ingo-->		
+		</div>
+	</div>
+	<!--/banner-section-->
+	<!--//main-header-->
+
+	
+	<!--/content-inner-section-->
+	<div class="w3_content_agilleinfo_inner">
+		<div class="agile_featured_movies">
+			<!--/agileinfo_tabs-->
+			<div class="agileinfo_tabs">
+				<!--/tab-section-->
+				<div id="horizontalTab">
+					<ul class="resp-tabs-list">
+					
+						<li>Les Mieux Commentés </li>
+
+					</ul>
+					<div class="resp-tabs-container">
+						
+						<div class="tab3">
+							<div class="tab_movies_agileinfo">
+								<div class="w3_agile_featured_movies">
+									<div class="col-md-5 video_agile_player">
+										<div class="video-grid-single-page-agileits">
+											<!--- Remplacer le src par l url de l image de l affiche du film donc film.url -->
+											<div data-video="BXEZFd0RT5Y" id="video2"> <img src="{{ url_for('static',filename='')}}" alt="" class="img-responsive" /> </div>
+										</div>
+
+										<div class="player-text">
+											<!---Remplacer {film.nom}par le nom du meilleur film
+												et {film.genre} par le genre du film 
+											-->
+
+											<p class="fexi_header"> </p>
+										<!---Remplacer {film.nom} par le nom du film -->
+											<p class="fexi_header_para"><span>Nom <label>:</label></span>{film.nom}</p>
+											<p class="fexi_header_para">
+												<!---Remplacer {film.genre} par le genre du film -->
+												<span>Genre<label>:</label> </span>
+												<!--<a href="genre.html">{film.genre}</a> -->
+											</p>
+										
+										</div>
+
+									</div>
+
+
+									<div class="col-md-7 wthree_agile-movies_list">
+
+										<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES Films
+											debut de la boucle ici -->
+										{% for movie in movies%}
+										<div class="w3l-movie-gride-agile">
+											<!---Remplacer le src de l img suivant par le lien vers l image de l affiche du film-->
+											<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url_for('static',filename='images/m1.jpg')}}" title="Movies Pro" class="img-responsive" alt=" ">
+												<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+											</a>
+											<div class="mid-1 agileits_w3layouts_mid_1_home">
+												<div class="w3l-movie-text">
+													<!---Remplacer film.nom par le nom film-->
+													<h6><a href="single.html">{{ movie.name}}	</a></h6>		
+												</div>
+												<div class="mid-2 agile_mid_2_home">
+												<!---Remplacer film.note par la note du film-->
+													<div class="clearfix"></div>
+												</div>
+											</div>
+										
+										</div>
+										{% endfor %}
+									<!-- fin de la boucle ici -->
+										
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="cleafix"></div>
+							</div>	
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--//tab-section-->	
+			<h3 class="agile_w3_title"> Nouveautés</span></h3>
+			<!--/movies-->				
+			<div class="w3_agile_latest_movies">
+
+				<div id="owl-demo" class="owl-carousel owl-theme">
+				<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES nouveaux Films
+										    debut de la boucle ici -->
+					<div class="item">
+						<div class="w3l-movie-gride-agile w3l-movie-gride-slider ">
+							<!---Remplacer le src de l img suivant par le lien vers l image de l affiche du film-->
+							<a href="single.html" class="hvr-sweep-to-bottom"><img src="{{ url_for('static',filename='images/m5.jpg')}}" title="Movies Pro" class="img-responsive" alt=" " />
+								<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+							</a>
+							<div class="mid-1 agileits_w3layouts_mid_1_home">
+							<!---Remplacer film.nom par le nom film-->
+								<div class="w3l-movie-text">
+									<h6><a href="single.html">{{movies.name}}	</a></h6>							
+								</div>
+								<!---Remplacer film.note par la note du film-->
+								<div class="mid-2 agile_mid_2_home">
+									<p>Note : {film.note}/10</p>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="ribben one">
+								<p>Nouveau</p>
+							</div>
+						</div>
+					</div>
+			<!-- fin de la boucle ici -->
+
+
+					
+		
+				</div>
+			</div>
+			<!--//movies-->
+
+		</div>
+	</div>
+	<!--//content-inner-section-->
+
+	<!--/footer-bottom-->
+
+	<div class="w3agile_footer_copy">
+		<p>© 2021 Ayouba & Kader All rights reserved</p>
+	</div>
+	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+	<script src="{{ url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+
+
+<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.zoomslider.min.js')}}"></script>
+	<!-- search-jQuery -->
+	<script src="{{ url_for('static',filename='js/main.js')}}"></script>
+
+
+	<!-- pop-up-box -->  
+	<script src="{{ url_for('static',filename='js/jquery.magnific-popup.js')}}" type="text/javascript"></script>
+	<!--//pop-up-box -->
+
+
+	<link href="{{ url_for('static',filename='css/owl.carousel.css')}}" rel="stylesheet" type="text/css" media="all">
+	<script src="{{ url_for('static',filename='js/owl.carousel.js')}}"></script>
+	<script>
+		$(document).ready(function() { 
+			$("#owl-demo").owlCarousel({
+
+		 autoPlay: 3000, //Set AutoPlay to 3 seconds
+		 autoPlay : true,
+		 navigation :true,
+
+		 items : 5,
+		 itemsDesktop : [640,4],
+		 itemsDesktopSmall : [414,3]
+
+		});
+
+		}); 
+	</script> 
+
+	<!--/script-->
+	<script type="text/javascript" src="{{ url_for('static',filename='js/move-top.js')}}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+			});
+		});
+	</script>
+
+	<script src="{{ url_for('static',filename='js/bootstrap.js')}}"></script>
+
+	
+	</body>
+</html>

@@ -29,10 +29,14 @@ class Movies(db.Model):
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username= db.Column(db.String(15), unique = True)
-    password = db.Column(db.String(80))
+    password = db.Column(db.String(80)) 
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=4,max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=4,max=15)])
+@app.route('/', methods=['POST','GET'])
+def indexx():
+    movies = Movies.query.order_by(Movies.date_created)
+    return render_template("index.html",movies=movies)
 @app.route('/admin', methods=['POST','GET'])
 def admin_login():
     form = LoginForm()
@@ -69,7 +73,7 @@ def add_movie():
             return "ERROR LOL"
     else:
         movies = Movies.query.order_by(Movies.date_created)
-        return render_template("add_movie.html",movies = movies )
+        return render_template("add_movie.html",movies = movies)
     return render_template("add_movie.html")
 @app.route('/review')
 def index():
