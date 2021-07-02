@@ -25,7 +25,7 @@
 <body>
 	<!--/main-header-->
 	<!--/banner-section-->
-	<div id="demo-1" data-zs-src='["images/banner.jpg"]' data-zs-overlay="dots">
+	<div id="demo-1" data-zs-src="{{ url_for('static',filename='images/banner.jpg')}}" data-zs-overlay="dots">
 		<div class="demo-inner-content">
 			<!--/header-w3l-->
 			<div class="header-w3-agileits" id="home">
@@ -116,7 +116,7 @@
 									<div class="col-md-5 video_agile_player">
 										<div class="video-grid-single-page-agileits">
 											<!--- Remplacer le src par l url de l image de l affiche du film donc film.url -->
-											<div data-video="BXEZFd0RT5Y" id="video2"> <img src="{{ url_for('static',filename='')}}" alt="" class="img-responsive" /> </div>
+											<div data-video="BXEZFd0RT5Y" id="video2"> <img src="{{ url_for('static',filename='images/banner.jpg')}}" alt="" class="img-responsive" /> </div>
 										</div>
 
 										<div class="player-text">

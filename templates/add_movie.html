@@ -5,21 +5,24 @@
 {% endblock %}
 {% block content %}
   <div>
-    <h1>Index</h1>
+    <h1>Movie Addition</h1>
     <p class="important">
-      Welcome on my add_movie
+      Insert movie informations:
       <form action = "/add_movie" METHOD = "POST">
         <input type= "text" placeholder="Name" name="name">
-        <input type= "text" placeholder="Categorie" name="categorie">
+        <label for="categorie">Choose a categorie:</label>
+        <select id="categorie" name="categorie">
+          <option value="horror">horror</option>
+          <option value="comedy">comedy</option>
+          <option value="adventure">adventure</option>
+          <option value="drama">drama</option>
+        </select>
+      </br>
+    </br>
+  </br>
+
+  <textarea name="description">Enter text here...</textarea>
         <input type="submit" value ="Add Movie">
       </form>
-      <br/><br/>
-      {% for movie in movies%}
-      <h4>
-        {{ movie.name}}
-        {{ movie.categorie}}
-       
-      </h4>
-      {% endfor %}
     </div>
   {% endblock %}

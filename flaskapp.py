@@ -25,6 +25,7 @@ class Movies(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(200), nullable = False)
     categorie = db.Column(db.String(200),nullable = False)
+    description = db.Column(db.String(500))
     date_created = db.Column(db.DateTime,default= datetime.utcnow)
 class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -63,7 +64,8 @@ def add_movie():
     if request.method == "POST":
         movie_name = request.form['name']
         movie_categorie = request.form['categorie']
-        new_movie = Movies(name=movie_name,categorie=movie_categorie)
+        movie_description = request.form['description']
+        new_movie = Movies(name=movie_name,categorie=movie_categorie, description= movie_description)
         try:
             db.session.add(new_movie)
             db.session.commit()
