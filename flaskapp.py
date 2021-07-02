@@ -38,6 +38,9 @@ class LoginForm(FlaskForm):
 def indexx():
     movies = Movies.query.order_by(Movies.date_created)
     return render_template("index.html",movies=movies)
+@app.route('/single.html',methods = ['POST','GET'])
+def single():
+    return render_template("single.html")
 @app.route('/admin', methods=['POST','GET'])
 def admin_login():
     form = LoginForm()
