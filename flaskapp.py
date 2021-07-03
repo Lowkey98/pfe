@@ -40,9 +40,10 @@ def indexx():
     return render_template("index.html",movies=movies)
 @app.route('/single.html/<string:movie_id>',methods = ['POST','GET'])
 def single(movie_id):
+    form = ReviewForm(request.form)
     movie = Movies.query.filter_by(id=movie_id).first()
     print(f'HELOOOOOOOO{movie.name}')
-    return render_template("single.html",movie = movie)
+    return render_template("single.html",movie = movie,form= form)
 @app.route('/admin', methods=['POST','GET'])
 def admin_login():
     form = LoginForm()
@@ -86,14 +87,15 @@ def add_movie():
 def index():
  form = ReviewForm(request.form)
  return render_template('reviewform.html', form=form)
-@app.route('/results', methods=['POST'])
-def results():
+@app.route('/results/<string:movie_id>', methods=['POST','GET'])
+def results(movie_id):
  form = ReviewForm(request.form)
  #if request.method == 'POST' and form.validate():
+ movie = Movies.query.filter_by(id=movie_id).first()
  review = request.form['moviereview']
  y, proba = classify(review)
- return render_template('results.html',content=review,prediction=y,probability=round(proba*100, 2))
- return render_template('reviewform.html', form=form)
+ return render_template('single.html',movie = movie,content=review,prediction=y,probability=round(proba*100, 2))
+ return render_template('single.html', form=form)
 if __name__ == '__main__':
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True

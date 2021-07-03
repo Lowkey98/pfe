@@ -4,6 +4,7 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+{% from '_formhelpers.html' import render_field %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -150,18 +151,17 @@
 						<h5 >Laissez Votre Commentaire Ici</h5>
 						<div class="agile-info-wthree-box">
 							<!--formulaire pour laisser un nouveau commentaire--->
-							<form>
+							<form method=post action="/results/{{movie.id}}">
 								<div class="col-md-12 form-info">
-									<input type="text" name="name" placeholder="Your Name" required="">
-									<br><br>   
-									<textarea placeholder="Message" required=""></textarea>
+									<textarea placeholder="Message" required="" name = "moviereview"></textarea>
 									<input type="submit" value="SEND">
 								</div>
 								<div class="clearfix"> </div>
 								<br>
 								<br>
 								<div>
-
+									<div>This movie review is <strong>{{ prediction }}</strong>
+										(probability: {{ probability }}%).</div>
 									<h4>Ce commentaire est <span class="text-danger">bon</span> a <span class="text-success">90%</span></h4>
 								</div>
 							</form>
