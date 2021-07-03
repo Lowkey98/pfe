@@ -44,12 +44,12 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<h1><a  href="index.html"><span>KADER & AYOUB</span>FILMS </a></h1>
+							<h1><a  href="{{ url_for('indexx',filename='index.html')}}"><span>KADER & AYOUB</span>FILMS </a></h1>
 						</div>
 						<!-- navbar-header -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.html">Home</a></li>
+								<li class="active"><a href="{{ url_for('indexx',filename='index.html')}}">Home</a></li>
 								<li class="dropdown active">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column">
@@ -106,30 +106,30 @@
 		<div class="agile_featured_movies">
 
 			<!--/tv-movies-->
-			<h3 class="agile_w3_title hor-t">Film<span>d'action</span> </h3>
+			<h3 class="agile_w3_title hor-t">Film<span>{{movies.categorie}}</span> </h3>
 			<div class="wthree_agile-requested-movies tv-movies">
 
 				<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES Films
-										    debut de la boucle ici -->
-				<div class="col-md-2 w3l-movie-gride-agile requested-movies">
-					<!---Remplacer le src de l img suivant par le lien vers l image de l affiche du film-->
-					<a href="single.html" class="hvr-sweep-to-bottom"><img src="images/c1.jpg" title="Movies Pro" class="img-responsive" alt=" ">
-						<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
-					</a>
-					<div class="mid-1 agileits_w3layouts_mid_1_home">
-						<div class="w3l-movie-text">
-					<!---Remplacer film.nom par le nom film-->
-					<!---	<h6><a href="single.html">{{film.nom}}	</a></h6>	uncomment	-->
-						</div>
-						<div class="mid-2 agile_mid_2_home">
-					<!---Remplacer film.note par la note du film-->
-						<!---	<p>Note :  {film.note}/10</p>-->
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				
-				</div>
-
+											debut de la boucle ici -->
+											{% for movie in movies%}
+											<div class="w3l-movie-gride-agile">
+												<!---Remplacer le src de l img suivant par le lien vers l image de l affiche du film-->
+												<a href="/single.html/{{movie.id}}" class="hvr-sweep-to-bottom"><img src="{{ url_for('static',filename='images/m1.jpg')}}" title="Movies Pro" class="img-responsive" alt=" ">
+													<div class="w3l-action-icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+												</a>
+												<div class="mid-1 agileits_w3layouts_mid_1_home">
+													<div class="w3l-movie-text">
+														<!---Remplacer film.nom par le nom film-->
+														<h6><a href="/single.html/{{movie.id}}">{{ movie.name}}	</a></h6>		
+													</div>
+													<div class="mid-2 agile_mid_2_home">
+													<!---Remplacer film.note par la note du film-->
+														<div class="clearfix"></div>
+													</div>
+												</div>
+											
+											</div>
+											{% endfor %}
 				<!-- fin de la boucle ici -->
 
 
@@ -151,7 +151,7 @@
 <div class="w3agile_footer_copy">
 	<p>© 2021 Ayouba & Kader All rights reserved</p>
 </div>
-<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<a href="{{ url_for('indexx',filename='index.html')}}" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 <script src="{{ url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
 <!-- Dropdown-Menu-JavaScript -->

@@ -83,6 +83,10 @@ def add_movie():
         movies = Movies.query.order_by(Movies.date_created)
         return render_template("add_movie.html",movies = movies)
     return render_template("add_movie.html")
+@app.route('/genre.html/<string:movie_categorie>',methods=['POST','GET'])
+def genre(movie_categorie):
+ movies = Movies.query.filter_by(categorie=movie_categorie)
+ return render_template('genre.html',movies= movies)
 @app.route('/review')
 def index():
  form = ReviewForm(request.form)

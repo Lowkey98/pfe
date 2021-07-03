@@ -38,12 +38,12 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<h1><a  href="index.html"><span>KADER & AYOUB</span>FILMS </a></h1>
+							<h1><a  href="{{ url_for('indexx',filename='index.html')}}"><span>KADER & AYOUB</span>FILMS </a></h1>
 						</div>
 						<!-- navbar-header -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.html">Home</a></li>
+								<li class="active"><a href="{{ url_for('indexx',filename='index.html')}}">Home</a></li>
 								<li class="dropdown active">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column">
@@ -53,7 +53,10 @@
 										<!-- FAIRE UNE BOUCLE QUI BOUCLE SUR LA LISTE DES GENRES
 										    debut de la boucle ici -->
 
-											<li><a href="genre.html">Action</a></li> <!--Remplacez Action par le nom du genre -->
+											<li><a href="genre.html/horror">horror</a></li>
+											<li><a href="genre.html/comedy">comedy</a></li>
+											<li><a href="genre.html/adventure">adveture</a></li>
+											<li><a href="genre.html/drama">drama</a></li>
 
 											<!-- fin de la boucle ici -->
 										</ul>
@@ -151,7 +154,9 @@
 											<div class="mid-1 agileits_w3layouts_mid_1_home">
 												<div class="w3l-movie-text">
 													<!---Remplacer film.nom par le nom film-->
-													<h6><a href="single.html">{{ movie.name}}	</a></h6>		
+													<h6><a href="single.html/{{movie.id}}">{{ movie.name}}	</a></h6>
+													<br>
+													<h6><a href="single.html/{{movie.id}}">{{ movie.categorie}}	</a></h6>	
 												</div>
 												<div class="mid-2 agile_mid_2_home">
 												<!---Remplacer film.note par la note du film-->
